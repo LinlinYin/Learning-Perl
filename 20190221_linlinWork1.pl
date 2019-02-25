@@ -31,7 +31,7 @@ foreach my $j (0..(scalar(@startPositions)-1)) {
 #find max in each position
 my $sumValue=0;
 foreach my $i (0..($seqSubsetLength-1)) {
-	my @countInPosition=values($seqPositionCount{$i});
+	my @countInPosition=values(%{$seqPositionCount{$i}});
 	my $countInPositionMax=max(@countInPosition);
 	$sumValue=$sumValue+$countInPositionMax;
 	print $countInPositionMax."\n";
