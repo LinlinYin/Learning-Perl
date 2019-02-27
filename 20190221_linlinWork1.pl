@@ -1,7 +1,12 @@
 use List::Util qw[max];
 
-my @sequences=("ACTTCGACCCCCGACTCCCAGCAGCACGATCAGCACTAT","ACTTCGACCTGCACGACAGCAGCACGATCAGCACTAT","CACGATCAGCACTATCACGATC","CACGATCAGCACTAGATCAGCACT","AGCACGATCAGCACTTCGACCTGCACGA");
-my @startPositions=(2,3,4,5,6);
+# define the sequence and start positions
+my @sequences=("gatagacgctatctggctatccaggtacttaggtcctctgtgcgaatctatgcgtttccaaccat",
+"agtactggtgtacatttgatccatacgtacaccggcaacctgaaacaaacgctcagaaccagaagtgc",
+"aaacgttagtgcaccctctttcttcgtggctctggccaacgagggctgatgtataagacgaaaatttt",
+"agcctccgatgtaagtcatagctgtaactattacctgccacccctattacatcttacgtccatataca",
+"ctgttatacaacgcgtcatggcggggtatgcgttttggtcgtcgtacgctcgatcgttaccgtacggc");
+my @startPositions=(3,5,8,9,1);
 my $seqSubsetLength=8;
 
 
@@ -11,7 +16,7 @@ foreach my $j (0..(scalar(@startPositions)-1)) {
 	my $startPosition=$startPositions[$j];
 	my $sequence=$sequences[$j];
 	
-	print $startPosition."\n";
+	print "Start position ".$startPosition."  ";
 	my $subSequence  = substr $sequence, $startPosition,$seqSubsetLength;
 	print $subSequence."\n";
 	
@@ -28,14 +33,13 @@ foreach my $j (0..(scalar(@startPositions)-1)) {
 	}
 }
 
-#find max in each position
+#find max count in each position of the motif
 my $sumValue=0;
 foreach my $i (0..($seqSubsetLength-1)) {
 	my @countInPosition=values(%{$seqPositionCount{$i}});
 	my $countInPositionMax=max(@countInPosition);
 	$sumValue=$sumValue+$countInPositionMax;
-	print $countInPositionMax."\n";
+	##print $countInPositionMax."\n";
 }
 
-
-print "Result:".$sumValue."\n";
+print "Total Result:".$sumValue."\n";
