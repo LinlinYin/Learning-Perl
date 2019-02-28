@@ -12,7 +12,7 @@ my @sequences = (
 	"CATGATCTTTTGATGGCACTTGGATGAGGGAATGAT"
 );
 
-my $seqSubsetLength = 8;
+my $seqSubsetLength = 24;
 
 my $maxInAllPosition      = 0;
 my @maxInAllPositionIndex = ();
