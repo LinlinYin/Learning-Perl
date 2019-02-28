@@ -12,13 +12,14 @@ my @sequences = (
 	"CATGATCTTTTGATGGCACTTGGATGAGGGAATGAT"
 );
 
-my $seqSubsetLength = 8;
+my $seqSubsetLength = 10;
 
 
 my $maxInAllPosition=0;
 my @maxInAllPositionIndex=();
 my $maxInAllPositionMotif="";
 foreach my $indexOne0 ( 0 .. ( length( $sequences[0] ) - $seqSubsetLength ) ) {
+	print "$indexOne0\n";
 	foreach
 	  my $indexOne1 ( 0 .. ( length( $sequences[1] ) - $seqSubsetLength ) )
 	{
