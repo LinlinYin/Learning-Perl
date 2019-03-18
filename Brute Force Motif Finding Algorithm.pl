@@ -3,16 +3,14 @@ use List::MoreUtils qw(firstidx);
 use Time::HiRes qw( time );
 my $start = time();
 my @sequences = (
-	"GGGCTATCCAGCTGGGTCGTCACATTCCCCTTTCGA",
-	"TGAGGGTGCCCAATAAGGGCAACTCCAAAGCGGACA",
-	"ATGGATCTGATGCCGTTTGACGACCTAAATCAACGG",
-	"GGAAGCAACCCCAGGAGCGCCTTTGCTGGTTCTACC",
-	"TTTTCTAAAAAGATTATAATGTCGGTCCTTGGAACT",
-	"GCTGTACACACTGGATCATGCTGCATGCCATTTTCA",
-	"CATGATCTTTTGATGGCACTTGGATGAGGGAATGAT"
+	"CCTGATAGACGCTATCTGGCTATCCAGGTACTTAGGTCCTCTGTGCGAATCTATGCGTTTCCAACCAT",
+	"AGTACTGGTGTACATTTGATCCATACGTACACCGGCAACCTGAAACAAACGCTCAGAACCAGAAGTGC",
+	"AAACGTTAGTGCACCCTCTTTCTTCGTGGCTCTGGCCAACGAGGGCTGATGTATAAGACGAAAATTTT",
+	"AGCCTCCGATGTAAGTCATAGCTGTAACTATTACCTGCCACCCCTATTACATCTTACGTCCATATACA",
+	"CTGTTATACAACGCGTCATGGCGGGGTATGCGTTTTGGTCGTCGTACGCTCGATCGTTACCGTACGGC"
 );
 
-my $seqSubsetLength = 24;
+my $seqSubsetLength = 8;
 
 
 my $maxInAllPosition=0;
@@ -31,22 +29,16 @@ foreach my $indexOne0 ( 0 .. ( length( $sequences[0] ) - $seqSubsetLength ) ) {
 			{
 				foreach my $indexOne4 (
 					0 .. ( length( $sequences[4] ) - $seqSubsetLength ) )
-				{
-					foreach my $indexOne5 (
-						0 .. ( length( $sequences[5] ) - $seqSubsetLength ) )
-					{
-						foreach my $indexOne6 (
-							0 .. ( length( $sequences[6] ) - $seqSubsetLength )
-						  )
-						{
-							my @startPositions=($indexOne0,$indexOne1,$indexOne2,$indexOne3,$indexOne4,$indexOne5,$indexOne6);
+				{					
+						
+							my @startPositions=($indexOne0,$indexOne1,$indexOne2,$indexOne3,$indexOne4);
 							my ($sumValue,$maxMotif) = maxCount( \@startPositions, \@sequences, $seqSubsetLength );
 							if ($maxInAllPosition<$sumValue) {
 								$maxInAllPosition=$sumValue;
 								@maxInAllPositionIndex=@startPositions;
 								$maxInAllPositionMotif=$maxMotif;
-							}
-						}
+							
+						
 					}
 				}
 			}
