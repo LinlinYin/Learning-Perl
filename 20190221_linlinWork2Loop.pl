@@ -47,16 +47,9 @@ foreach my $searchPattern (@allSearchPatterns) {
 }
 print $minPattern."\t".$allPatternMin. "\n";
 my $end = time();
-#printf("%.2f\n", $end - $start);
+printf("%.2f\n", $end - $start);
 
-print "Max Count in all positions: " . "34" . "\n";
-print "Sequence 0" . "\t" . "CTGATAGA". "\n";
-print "Sequence 1" . "\t" . "CTGGTGTA" . "\n";
-print "Sequence 2" . "\t" . "CTGATGTA" . "\n";
-print "Sequence 3" . "\t" . "CCGATGTA" . "\n";
-print "Sequence 4" . "\t" . "CTGTTATA" . "\n";
-print "motif"."\t".$minPattern."\n";
-printf("14413.45");
+
 
 sub sequences_distance {
 	my ( $searchPattern, $sequencesRef ) = @_;
